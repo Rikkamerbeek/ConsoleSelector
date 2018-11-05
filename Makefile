@@ -10,7 +10,7 @@ REMOTECONTROLLERSOURCES=$(wildcard RemoteController/*.cpp) $(Comminucation.cpp)
 REMOTECONTROLLERHEADERS=$(wildcard RemoteController/*.h) $(Comminucation.h) $(iConsole.h)
 REMOTECONTROLLEROBJECTS=$(SOURCES:.cpp=.o)
 REMOTECONTROLLERTARGET=RemoteApplication
-
+	
 TEST=test_$(CONSOLESELECTORTARGET) test_$(REMOTECONTROLLERTARGET)
 
 TEST_SOURCES=$(filter-out RemoteController/main.cpp, $(REMOTECONTROLLERSOURCES)) \
