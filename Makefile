@@ -50,6 +50,7 @@ clean:
 	@rm -f $(CONSOLESELECTORTARGET) 
 	@rm -f $(REMOTECONTROLLEROBJECTS)
 	@rm -f $(REMOTECONTROLLERTARGET)
+	@rm -f $(TEST)
 	@echo  cleaned
 
 test: $(TEST)
