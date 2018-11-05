@@ -1,5 +1,5 @@
 int main(int argc, char const *argv[])
 {
-    /* code */
+    Remotecontroller remotecontroller;
     return 0;
 }
