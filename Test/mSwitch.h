@@ -8,7 +8,7 @@
 class mSwitch : public iSwitch
 {
 public:
-
+    MOCK_METHOD0(SetSwitch(), void());
 };
 
 #endif
