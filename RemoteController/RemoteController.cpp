@@ -11,6 +11,17 @@ States RemoteController::HandleIdleState(Events ev)
 {
     States result = STATE_STANDBY;
     display.DisplayOff();
+
+    switch (ev)
+    {
+    case EV_TOUCHEDSTANDBYSCREEN:
+        result = STATE_SELECTING;
+        //send selected device to ConsoleSelector
+        break;
+    default:
+        break;
+    }
+
     return result;
 }
 
