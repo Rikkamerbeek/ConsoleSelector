@@ -22,7 +22,7 @@ public:
 
 private:
     iDisplay& display;
-    states CurrentState;
+    States CurrentState;
 
 
 };
