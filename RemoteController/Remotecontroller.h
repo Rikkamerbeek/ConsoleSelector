@@ -23,8 +23,6 @@ public:
 private:
     iDisplay& display;
     States CurrentState;
-
-
 };
 
 #endif

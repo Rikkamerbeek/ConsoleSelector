@@ -9,3 +9,5 @@ public:
     virtual void SetSwitch(int port) = 0;
     
 };
+
+#endif
