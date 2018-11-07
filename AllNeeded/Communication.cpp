@@ -8,9 +8,9 @@ Communication::~Communication(){
 
 }
 
-void Communication::ClientToServerConnect(int &socketFd)
+int Communication::ClientToServerConnect()
 {
-	socketFd = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
+	    int socketFd = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
 
 		if (socketFd == -1)
 	    {
@@ -41,6 +41,7 @@ void Communication::ClientToServerConnect(int &socketFd)
 	            exit(EXIT_FAILURE);
 	        }
 	    }
+        return result;
 }
 
 void Communication::Close(int &socketFd)
@@ -74,9 +75,9 @@ void Communication::Read(int &connectFd)
     }
 }
 
-void Communication::ServerSetup()
+int Communication::ServerSetup()
 {
-    int socketFd = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
+        int socketFd = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
         std::cout << socketFd;
         if (socketFd < 0)
         {
@@ -113,6 +114,7 @@ void Communication::ServerSetup()
                 exit(EXIT_FAILURE);
             }
         std::string message;
+        return connectFd;
 }
 
 void Communication::Write(int &socketFd, std::string message)

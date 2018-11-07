@@ -1,12 +1,15 @@
 #include "Communication.h"
 
-int main(void){
-    
-    //Communication* communication = new Communication();
-    while(true)
-    {
-        
-    }
+int main(void)
+{
+ 
+        int connectFd;
 
+        Communication* communication = new Communication();
+        connectFd = communication->ServerSetup();
+        while(connectFd < 0)
+        {
+            communication->Read(connectFd);
+        }
     return 0;
 }

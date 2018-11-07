@@ -15,11 +15,11 @@ public:
     Communication();
     ~Communication();
 
-    virtual void ClientToServerConnect(int &socketFd) = 0;
-    virtual void Close(int &socketFd) = 0;
-    virtual void Read(int &connectFd) = 0;
-    virtual void ServerSetup() = 0;
-    virtual void Write(int &socketFd, std::string message) = 0;
+    virtual int ClientToServerConnect();
+    virtual void Close(int &socketFd);
+    virtual void Read(int &connectFd);
+    virtual int ServerSetup();
+    virtual void Write(int &socketFd, std::string message);
 
 private:
     const uint16_t PortNumber = 1100;
