@@ -1,5 +1,6 @@
 int main(int argc, char const *argv[])
 {
-    Remotecontroller remotecontroller;
+    Remotecontroller rc = new Remotecontroller;
+    
     return 0;
 }
