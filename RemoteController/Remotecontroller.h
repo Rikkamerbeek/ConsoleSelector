@@ -1,6 +1,9 @@
 #ifndef REMOTECONTROLLER_H
 #define REMOTECONTROLLER_H
 
+#include <vector>
+#include <string>
+
 #include "iDisplay.h"
 #include "../AllNeeded/Events.h"
 #include "../AllNeeded/States.h"
@@ -23,6 +26,8 @@ public:
 private:
     iDisplay& display;
     States currentState;
+    std::string currentConsole;
+    std::vector<std::string> consoles;
 };
 
 #endif
