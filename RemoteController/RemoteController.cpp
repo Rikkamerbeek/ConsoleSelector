@@ -3,36 +3,36 @@
 #include <iostream>
 
 
-RemoteController::RemoteController( iDisplay& display): display(display), currentState(STATE_STANDBY)
+RemoteController::RemoteController(iDisplay& display): display(display), currentState(STATE_STANDBY)
 {
 }
 
-States HandleIdleState(Events ev)
+States RemoteController::HandleIdleState(Events ev)
 {
     States result = STATE_STANDBY;
     display.DisplayOff();
     return result;
 }
 
-States HandleSelectingState(Events ev)
+States RemoteController::HandleSelectingState(Events ev)
 {
     States result = STATE_SELECTING;
     return result;
 }
 
-States HandleSwitchingState(Events ev)
+States RemoteController::HandleSwitchingState(Events ev)
 {
     States result = STATE_CHANGING;
     return result;
 } 
 
-States HandleAddingState(Events ev)
+States RemoteController::HandleAddingState(Events ev)
 {
     States result = STATE_ADDING;
     return result;
 }
 
-States HandleRunningState(Events ev)
+States RemoteController::HandleRunningState(Events ev)
 {
     States result = STATE_RUNNING;
     return result;
