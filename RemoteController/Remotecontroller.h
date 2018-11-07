@@ -2,7 +2,8 @@
 #define REMOTECONTROLLER_H
 
 #include "iDisplay.h"
-#include "Events.h"
+#include "../AllNeeded/Events.h"
+#include "../AllNeeded/States.h"
 
 class Remotecontroller
 {
@@ -10,10 +11,20 @@ public:
     Remotecontroller(iDisplay& display);
     ~Remotecontroller() {}; 
 
-    void SendAction(Events event);
 
+    void HandleEvent(Events ev);
 
+    States HandleIdleState(Events ev);
+    States HandleSelectingState(Events ev);
+    States HandleSwitchingState(Events ev);
+    States HandleAddingState(Events ev);
+    States HandleRunningState(Events ev);
 
+private:
+    iDisplay& display;
+    states CurrentState;
 
 
 };
+
+#endif

@@ -9,3 +9,5 @@ enum Events
   EV_ADDCONSOLEPRESSED
   EV_REMOVECONSOLEPRESSED
 };
+
+#endif

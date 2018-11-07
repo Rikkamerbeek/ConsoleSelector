@@ -16,3 +16,5 @@ private:
     virtual std::string name;
     virtual int pos;
 };
+
+#endif

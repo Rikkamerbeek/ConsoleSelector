@@ -11,12 +11,8 @@ Remotecontroller::~Remotecontroller()
 {
 }
 
-bool Remotecontroller::SendAction(Events event)
-{
-    //iets met selct ofzo send event
-}
-
-void Remotecontroller::SetDisplay(Console console)
-{
-    display.
-}
+States HandleIdleState(Events ev);
+States HandleSelectingState(Events ev);
+States HandleSwitchingState(Events ev);
+States HandleAddingState(Events ev);
+States HandleRunningState(Events ev);
