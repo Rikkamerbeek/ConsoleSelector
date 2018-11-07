@@ -9,3 +9,5 @@ public:
     virtual void SetSwitch() = 0;
     
 };
+
+#endif
