@@ -5,11 +5,11 @@
 #include "../AllNeeded/Events.h"
 #include "../AllNeeded/States.h"
 
-class Remotecontroller
+class RemoteController
 {
 public:
-    Remotecontroller(iDisplay& display);
-    ~Remotecontroller() {}; 
+    RemoteController(iDisplay& display);
+    ~RemoteController() {}; 
 
 
     void HandleEvent(Events ev);
@@ -22,7 +22,7 @@ public:
 
 private:
     iDisplay& display;
-    States CurrentState;
+    States currentState;
 };
 
 #endif

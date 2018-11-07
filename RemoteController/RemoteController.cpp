@@ -1,19 +1,16 @@
-#include "Remotecontroller.h"
+#include "RemoteController.h"
 
 #include <iostream>
 
 
-Remotecontroller::Remotecontroller(iDisplay& display)
-{
-}
-
-Remotecontroller::~Remotecontroller()
+RemoteController::RemoteController( iDisplay& display): display(display), currentState(STATE_STANDBY)
 {
 }
 
 States HandleIdleState(Events ev)
 {
-    States result = STATE_IDLE;
+    States result = STATE_STANDBY;
+    display.DisplayOff();
     return result;
 }
 
@@ -25,7 +22,7 @@ States HandleSelectingState(Events ev)
 
 States HandleSwitchingState(Events ev)
 {
-    States result = STATE_SWITCHING;
+    States result = STATE_CHANGING;
     return result;
 } 
 
@@ -41,24 +38,25 @@ States HandleRunningState(Events ev)
     return result;
 }
 
-void Remotecontroller::HandleEvent(Events ev)
+void RemoteController::HandleEvent(Events ev)
 {
+
     switch (currentState)
     {
     case STATE_STANDBY:
-        currentstate = HandleIdleState(ev);
+        currentState = HandleIdleState(ev);
         break;
     case STATE_SELECTING:
         currentState = HandleSelectingState(ev);
         break;
     case STATE_CHANGING:
-        currentstate = HandleSwitchingState(ev);
+        currentState = HandleSwitchingState(ev);
         break;
     case STATE_RUNNING:
         currentState = HandleRunningState(ev);
         break;
     case STATE_ADDING:
-        currentstate = HandleAddingState(ev);
+        currentState = HandleAddingState(ev);
         break;
     default:
         break;
