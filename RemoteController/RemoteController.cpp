@@ -10,7 +10,6 @@ RemoteController::RemoteController( iDisplay& display): display(display), curren
 States HandleIdleState(Events ev)
 {
     States result = STATE_STANDBY;
-    display.DisplayOff();
     return result;
 }
 

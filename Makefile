@@ -13,8 +13,8 @@ REMOTECONTROLLERTARGET=RemoteApplication
 	
 TEST=test_$(CONSOLESELECTORTARGET) test_$(REMOTECONTROLLERTARGET)
 
-TEST_SOURCES=$(filter-out RemoteController/main.cpp, $(REMOTECONTROLLERSOURCES)) \
-	$(filter-out SystemController/main.cpp, $(REMOTECONTROLLERSOURCES))\
+TEST_SOURCES=$(filter-out RemoteController/RemoteMain.cpp, $(REMOTECONTROLLERSOURCES)) \
+	$(filter-out SystemController/SystemMain.cpp, $(REMOTECONTROLLERSOURCES))\
 	$(wildcard test/*.cpp)
 
 TEST_HEADERS=$(CONSOLESELECTORHEADERS) $(REMOTECONTROLLERHEADERS) \
