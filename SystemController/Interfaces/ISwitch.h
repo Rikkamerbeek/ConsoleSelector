@@ -4,9 +4,9 @@
 class iSwitch
 {
 public:
-    ~iSwitch();
+    virtual ~iSwitch();
 
-    virtual void SetSwitch() = 0;
+    virtual void SetSwitch(int port) = 0;
     
 };
 

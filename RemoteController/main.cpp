@@ -1,5 +1,8 @@
+#include "Remotecontroller.h"
+
 int main(int argc, char const *argv[])
 {
-    /* code */
+    Remotecontroller rc = new Remotecontroller;
+    
     return 0;
 }

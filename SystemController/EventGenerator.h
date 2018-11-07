@@ -1,0 +1,2 @@
+#ifndef EVENTGENERATOR_H
+#define EVENTGENERATOR_H

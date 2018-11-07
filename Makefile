@@ -1,13 +1,13 @@
 CXXFLAGS=-Wall -pedantic -ggdb -O0 -std=c++11 -Iproduct
 LDFLAGS=-lgtest -lgmock -lgmock_main -lpthread
 
-CONSOLESELECTORSOURCES=$(wildcard SystemController/*.cpp) $(Comminucation.cpp)
-CONSOLESELECTORHEADERS=$(wildcard SystemController/*.h) $(Comminucation.h) $(iConsole.h)
+CONSOLESELECTORSOURCES=$(wildcard AllNeeded/*.cpp) $(wildcard SystemController/*.cpp) $(Comminucation.cpp)
+CONSOLESELECTORHEADERS=$(wildcard AllNeeded/*.h) $(wildcard SystemController/*.h)
 CONSOLESELECTOROBJECTS=$(SOURCES:.cpp=.o)
 CONSOLESELECTORTARGET=ConsoleSelector
 
-REMOTECONTROLLERSOURCES=$(wildcard RemoteController/*.cpp) $(Comminucation.cpp)
-REMOTECONTROLLERHEADERS=$(wildcard RemoteController/*.h) $(Comminucation.h) $(iConsole.h)
+REMOTECONTROLLERSOURCES=$(wildcard AllNeeded/*.cpp) $(wildcard RemoteController/*.cpp) $(Comminucation.cpp)
+REMOTECONTROLLERHEADERS=$(wildcard AllNeeded/*.h) $(wildcard RemoteController/*.h)
 REMOTECONTROLLEROBJECTS=$(SOURCES:.cpp=.o)
 REMOTECONTROLLERTARGET=RemoteApplication
 	
