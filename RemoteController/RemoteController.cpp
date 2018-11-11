@@ -31,8 +31,9 @@ States RemoteController::HandleIdleState(Events ev)
 States RemoteController::HandleSelectingState(Events ev)
 {
     States result = STATE_SELECTING;
+    std::string newConsole;
 
-    switch (ev)
+    switch(ev)
     {
     case EV_SELECTCONSOLE:
         //CurrentConsole == vector[]
@@ -45,7 +46,7 @@ States RemoteController::HandleSelectingState(Events ev)
         break;
     case EV_ADDCONSOLEPRESSED:
         result = STATE_ADDING;
-        string newConsole = display.AddConsole();
+        newConsole = display.AddConsole();
         //send new console to console switcher
         break;
     case EV_REMOVECONSOLEPRESSED:
@@ -78,6 +79,8 @@ States RemoteController::HandleRunningState(Events ev)
 
     case EV_CHANGECONSOLEPRESSED:
         result = STATE_SELECTING;
+        break;
+    default:
         break;
     }
     return result;

@@ -66,7 +66,7 @@ void Communication::Read(int &connectFd)
     {
         buffer[nrBytes] = '\0';
         std::cout << "received " << nrBytes << " bytes: " << buffer << std::endl;
-        size_t nrBytes = send(connectFd, ack.c_str(), ack.length(), 0);            
+        //  size_t nrBytes = send(connectFd, ack.c_str(), ack.length(), 0);            
     }
     else if(nrBytes == 0)
     {

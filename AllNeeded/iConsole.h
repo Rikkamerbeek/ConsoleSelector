@@ -3,10 +3,10 @@
 
 #include <string>
 
-class IConsole
+class iConsole
 {
 public:
-    virtual ~IConsole() {};
+    virtual ~iConsole() {};
     
     virtual void TurnOn() = 0;
     virtual void TurnOff() = 0;

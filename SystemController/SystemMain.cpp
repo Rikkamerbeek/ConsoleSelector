@@ -1,5 +1,14 @@
-int main(int argc, char const *argv[])
+#include "SystemController.h"
+
+int main(void)
 {
-    /* code */
+    int connectFd;
+
+    Communication* communication = new Communication();
+    connectFd = communication->ServerSetup();
+    while(connectFd < 0)
+    {
+        communication->Read(connectFd);
+    }
     return 0;
 }

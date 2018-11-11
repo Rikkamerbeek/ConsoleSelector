@@ -7,6 +7,7 @@
 #include "iDisplay.h"
 #include "../AllNeeded/Events.h"
 #include "../AllNeeded/States.h"
+#include "../AllNeeded/Communication.h"
 
 class RemoteController
 {
