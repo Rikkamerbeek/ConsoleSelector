@@ -2,7 +2,6 @@
 #define IDISPLAY_H
 
 
-#include <vector>
 #include <string>
 
 
@@ -11,9 +10,11 @@ class iDisplay
 public:
     virtual ~iDisplay() {};
 
-    virtual void SetConsoles(const std::vector<std::string>& consoles) = 0;
+    virtual void SetConsole(std::string console) = 0;
     virtual void DisplayOff() = 0;
-    virtual void GetCurrentPosition(int pos) = 0;
+    virtual std::string GetConsole() = 0;
+    virtual void ShowActualConsole() = 0;
+    virtual std::string AddConsole() = 0;
 
 };
 

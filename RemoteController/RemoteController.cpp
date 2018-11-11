@@ -3,7 +3,7 @@
 #include <iostream>
 
 
-RemoteController::RemoteController(iDisplay& display): display(display), currentState(STATE_STANDBY)
+RemoteController::RemoteController(iDisplay& display): display(display), currentState(STATE_STANDBY), currentConsole("Playstation")
 {
 }
 
@@ -15,8 +15,11 @@ States RemoteController::HandleIdleState(Events ev)
     switch (ev)
     {
     case EV_TOUCHEDSTANDBYSCREEN:
+        //get vector<string> consoles from ConsoleSelectorApplication
+        //currentConsole = vector[1];
+        //return currentConsole
         result = STATE_SELECTING;
-        //send selected device to ConsoleSelector
+        display.SetConsole(currentConsole);
         break;
     default:
         break;
@@ -28,24 +31,55 @@ States RemoteController::HandleIdleState(Events ev)
 States RemoteController::HandleSelectingState(Events ev)
 {
     States result = STATE_SELECTING;
-    return result;
-}
 
-States RemoteController::HandleSwitchingState(Events ev)
-{
-    States result = STATE_CHANGING;
+    switch (ev)
+    {
+    case EV_SELECTCONSOLE:
+        //CurrentConsole == vector[]
+        //send selectedconsole to ConsoleSelector
+        display.SetConsole(currentConsole);
+        break;
+    case EV_STARTCONSOLE:
+        result = STATE_RUNNING;
+        display.ShowActualConsole();
+        break;
+    case EV_ADDCONSOLEPRESSED:
+        result = STATE_ADDING;
+        string newConsole = display.AddConsole();
+        //send new console to console switcher
+        break;
+    case EV_REMOVECONSOLEPRESSED:
+        //send removed console to consoleswitcher
+        currentConsole = consoles.at(1);
+        display.SetConsole(currentConsole);
+    default:
+        break;
+    }
     return result;
 } 
 
 States RemoteController::HandleAddingState(Events ev)
 {
-    States result = STATE_ADDING;
+    States result = STATE_SELECTING;
+    //send to selector added console
     return result;
 }
 
 States RemoteController::HandleRunningState(Events ev)
 {
     States result = STATE_RUNNING;
+    switch (ev)
+    {
+    case EV_STOPCONSOLE:
+        result = STATE_STANDBY;
+        display.DisplayOff();
+        //send standbymode to consoleswitcher
+        break;
+
+    case EV_CHANGECONSOLEPRESSED:
+        result = STATE_SELECTING;
+        break;
+    }
     return result;
 }
 
@@ -59,9 +93,6 @@ void RemoteController::HandleEvent(Events ev)
         break;
     case STATE_SELECTING:
         currentState = HandleSelectingState(ev);
-        break;
-    case STATE_CHANGING:
-        currentState = HandleSwitchingState(ev);
         break;
     case STATE_RUNNING:
         currentState = HandleRunningState(ev);
